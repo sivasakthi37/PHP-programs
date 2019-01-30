@@ -1,5 +1,4 @@
 <?php
-
 /******************************************************************************                 
  *  Purpose         : All the business logic is here....
  * 
@@ -167,7 +166,7 @@ class utility
             $C = ($fah - 32) * 5 / 9;
             echo "Your celsius value is  " . $C . "\n";
         } catch (Exception $err) {
-            echo "ERROR : " . $err->getMessage() . "\n";
+            echo "ERROR : " . $err->getMessage()."\n";
             $this->fahCel();
             // $utility=new utility; 
             // $utility->fahCel();
