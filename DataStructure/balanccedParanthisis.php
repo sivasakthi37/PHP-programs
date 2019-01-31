@@ -26,11 +26,11 @@ function balanced()
     $res = balpar();// call the balpar function from this function
     if ($res)// if res return true your paranthisis is balanced.. 
     {
-        echo "YOUR EXPRESSION IS BALANCED :";
+        echo "YOUR EXPRESSION IS BALANCED... \n";
 
     }
     else{
-        echo "YOUR EXPRESSION IS NOT BALANCED :";
+        echo "YOUR EXPRESSION IS NOT BALANCED... \n";
     }
 }
 balanced();
@@ -39,12 +39,17 @@ balanced();
  */
 function balpar()
 {
+    try{
     $utility = new stack;
     echo " ENTER YOUR ARITHMATIC EXPRESSION :";
     fscanf(STDIN, "%s\n", $ex);// This is used to get the input from the user..
     $n = strlen($ex);// to find the length of the string..
     $sp = str_split($ex);// split the string into array acces one by one element..
-
+    // for ($i = 0; $i < $n; $i++) {
+    //     if ($sp[$i] != '(' || $sp[$i] != '{' || $sp[$i] != '[' || ($sp[$i] != ')' || $sp[$i] != '}' || $sp[$i] != ']') ) {
+    //     throw new Exception("PLZ ENTER VALID INPUT :" );
+    //     }
+    // }
     for ($i = 0; $i < $n; $i++) {
         if ($sp[$i] == '(' || $sp[$i] == '{' || $sp[$i] == '[') {
             $utility->push($sp[$i]); 
@@ -97,6 +102,12 @@ function balpar()
     } else {
         return false;
     }
+}
+catch(Exception $err){
+    echo "ERROR :".$err->getMessage()."\n";
+
+  //  balpar();
+}
 
 }
    

@@ -67,6 +67,9 @@ class Stack
         /**return value of removed node */
         return $val; 
     }
+    /**
+     * @description :This function is used to check the linklist is empty or not...
+     */
     public function isempty(){
 
         if(self::$size==0){

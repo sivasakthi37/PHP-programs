@@ -18,6 +18,9 @@ require("/home/brideit/Documents/PhP/utility/utility.php");
 /**
  * @description :Anagram module to check if String is Anagram or not.
  */
+
+
+
 function anagram1()
 {
     try {
@@ -31,16 +34,15 @@ function anagram1()
         }
         echo "ENter your second String :";
         fscanf(STDIN, "%s\n", $val2);// get a input from the user..
-        if (is_numeric($val2)) {
+       if (is_numeric($val2)) {
             throw new Exception("PLZ ENTER VALID STRING \n");
-        //    echo "PLZ ENTER VALID STRING";
-
+           //echo "PLZ ENTER VALID STRING";
         }
-       
        // $res = Utility::anagram($val1, $val2);
+
         $utility = new utility;
         $res = $utility->anagram($val1, $val2);
-        echo $res;
+      //  echo $res;
         if ($res) {
             echo "is anagram\n";
         } else {

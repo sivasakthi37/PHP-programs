@@ -1,4 +1,5 @@
 <?php
+
 /******************************************************************************                 
  *  Purpose         : All the business logic is here....
  * 
@@ -10,8 +11,8 @@
  *  @version        : 1.0
  *  @since          : 28-01-2019
  ******************************************************************************/
-class utility
-{
+ class utility
+ {
     /**
      * @ description :This function is used to find the two string is anagram are not...
      */
@@ -166,7 +167,7 @@ class utility
             $C = ($fah - 32) * 5 / 9;
             echo "Your celsius value is  " . $C . "\n";
         } catch (Exception $err) {
-            echo "ERROR : " . $err->getMessage()."\n";
+            echo "ERROR : " . $err->getMessage() . "\n";
             $this->fahCel();
             // $utility=new utility; 
             // $utility->fahCel();
@@ -185,7 +186,53 @@ class utility
     // var payment = (p * r) / (1 - (d));
         $d = pow((1 + $r), (-$n));
         $payment = ($P * $r) / (1 - ($d));// formula for monthly payment..
-        echo "Your Monthly payment is :".$payment."\n";
+        echo "Your Monthly payment is :" . $payment . "\n";
+    }
+
+    /**
+     * @description :find the prime number between the range...
+     */
+    function findPrime($s1, $s2)
+    {
+        $flag = 0;
+        $k = 0;
+        $prime = [];
+//echo "HIA HELLO";
+        for ($i = $s1; $i <= $s2; $i++) {
+            for ($j = 2; $j < $i; $j++) {
+                if ($i % $j == 0) {
+                    $flag = 0;
+                    break;
+                } else {
+                    $flag = 1;
+                }
+            }
+            if ($flag == 1) {
+                $prime[$k++] = $i;
+            }
+        }
+        return $prime;
+    }
+    /**
+     * @description :find the prime number in anagram between the range...
+     */
+    function findAnaPrime($ii, $jj)
+    {
+        $primes = $this->findPrime($ii, $jj);
+        $n = count($primes);
+
+        $anaPrimes = [];
+        $h = 0;
+
+        for ($i = 0; $i < $n - 1; $i++) {
+            for ($j = $i + 1; $j < $n - 1; $j++) {
+                if ($this->anagram($primes[$i], $primes[$j])) {
+                    $anaPrimes[$h++] = $primes[$i];
+                    $anaPrimes[$h++] = $primes[$j];
+                }
+            }
+        }
+        return $anaPrimes;
     }
 }
 ?>

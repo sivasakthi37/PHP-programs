@@ -19,8 +19,8 @@ class LinkList
     public $head;
     private static $size = 0;
     /**
- * @ description : add function to add the data in linklist..
- */
+     * @ description : add function to add the data in linklist..
+     */
     function add($data)
     {
         if ($this->head == null) {
@@ -94,15 +94,39 @@ class LinkList
         /**decrement size */
         self::$size--;
     }
+     /**
+     * @description :this method is used to sort the element in the linklist
+     */
+    function sort() {
+        //console.log("sorted enter ");
+        //  var temp2 = null;
+        do {
+            $swapped = 0;
+             $t = $this->head;
+            while ($t->next != null) {
+
+                if ($t->next->data < $t->data) {
+
+                     $neww = $t->next->data;
+                    $t->next->data = $t->data;
+                    $t->data = $neww;
+                    $swapped = 1;
+                }
+                $t = $t->next;
+            }
+
+        } while ($swapped);
+    }
     /**
      * @ description :get the data from the linklist and return the data..
      */
-    public function getData(){ 
+    public function getData()
+    {
         $str = "";
-        
+
         $current = $this->head;
-        while($current!=null){
-            $str = $str.$current->data." ";
+        while ($current != null) {
+            $str = $str . $current->data . " ";
             $current = $current->next;
         }
         return $str;

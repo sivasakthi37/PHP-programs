@@ -31,6 +31,7 @@ function Unorddedlist()
         $sp = explode(" ", $filestring);// split the sytring into array..
 
         for ($i = 0; $i < count($sp); $i++) {
+
             $LinkList->add($sp[$i]);
         }
         /** display  the linklist element.. */
@@ -41,30 +42,42 @@ function Unorddedlist()
         fscanf(STDIN, "%s\n", $word);
         /** validation.. */
         if (is_numeric($word)) {
-            throw new Exception("PLZ ENTER VALID INPUT ", 1);
+            throw new Exception("PLZ ENTER VALID INPUT \n", 1);
 
         }
         if ($LinkList->search($word)) {
             $LinkList->remove($word);
+            /** display  the linklist element.. */
+            $LinkList->display();
+            /** get  the linklist element.. */
+            $getdata = $LinkList->getData();
+            /** 
+             * @description :write the content  to file..
+             */
+            $file1 = fopen($resource, "w");
+            fwrite($file1, $getdata);
+            fclose($file1);
         } else {
 
             $LinkList->add($word);
             echo "FILE IS UPDATAED \n";
-
+            /** display  the linklist element.. */
+            $LinkList->display();
+            /** get  the linklist element.. */
+            $getdata = $LinkList->getData();
+            /** 
+             * @description :write the content  to file..
+             */
+            $file1 = fopen($resource,"w");
+            fwrite($file1, $getdata);
+            fclose($file1);
         }
-        /** display  the linklist element.. */
-        $LinkList->display();
-        /** get  the linklist element.. */
-        $getdata = $LinkList->getData();
-        /** 
-         * @description :write the content  to file..
-         */
-        $file1 = fopen($resource, "w");
-        fwrite($file1, $getdata);
-        fclose($file1);
+
+
+
     } catch (Exception $err) {
 
-        echo "ERROR ".$err->getMessage();
+        echo "ERROR :" . $err->getMessage();
         Unorddedlist();
     }
 // $file=fgets($resource,"r");
