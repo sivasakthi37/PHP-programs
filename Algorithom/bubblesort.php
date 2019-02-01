@@ -45,19 +45,19 @@ function bubble()
         $arr1 = $utility->bubblesort($arr);
 
         echo "YOUR SORTING NUMBER \n";
-         /**
+        /**
          * @description :Using this for loop print the sorted element..
          */
         for ($i = 0; $i < $size; $i++) {
-            echo $arr1[$i]."\n";
+            echo $arr1[$i] . "\n";
 
         }
         /**
          * @description :use this catch block to catch the message from the exception..
          */
     } catch (Exception $err) {
-        
-        echo "ERROR :".$err->getMessage()."\n";
+
+        echo "ERROR :" . $err->getMessage() . "\n";
 
     }
 

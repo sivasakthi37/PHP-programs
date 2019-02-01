@@ -18,15 +18,11 @@ $utility = new utility;
 //$res=$utility->prime(7);
 
 echo "YOUR PRIME NUMBERS BETWEEN 1 TO 1000 \n";
-
  for ($i = 2; $i < 1000; $i++) {
 
     if ($utility->prime($i)) // pass the value to prime function in utility file..
     {
-
         echo $i." ";
     }
-
  }
-
 ?>

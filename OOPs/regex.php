@@ -64,7 +64,7 @@ Please,let us know in case of any clarification Thank you BridgeLabz xx/xx/xxxx"
          */
         $str = preg_replace("/x*\/x*\/x*/", $date, $str);
         echo "\n";
-        echo $str."\n";
+        echo $str . "\n";
     } catch (Exception $e) {
         echo $e->getMessage();
         regex();
